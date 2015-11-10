@@ -1,3 +1,4 @@
+// 1)PREVENT REPEATS 2)GET EVENTFUNCTION 3)GET CAPTIONS 4)FORMAT
 
 var photoCollection = [];
 
@@ -34,6 +35,12 @@ var pickPhoto2 = function() {
 
 // Do interaction here //
 
+function castVote() {
+  // 1) need to take the clicked button 2) add value to that button 3)return that to a table
+
+}
+var button = document.getElementById('button');
+button.addEventListener('click', castVote(), false);
 
 Photo();
 pickPhoto1();

@@ -1,24 +1,24 @@
-#pictureOne {
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 5%;
-  margin-bottom: 10%;
-  float: left;
-
-}
-#pictureTwo {
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 5%;
-  margin-bottom: 10%;
-  float: right;
-}
-
 #title {
   font-family: 'Press Start 2P', cursive;
   font-size: 28px;
   text-align: center;
   margin:5%;
+}
+
+#pictureOne {
+  margin: 10% 10% 10% 10%;
+  float: left;
+
+}
+#pictureTwo {
+  margin: 10% 10% 10% 10%;
+  float: right;
+
+}
+#button {
+  background: white;
+  border: none;
+  float:left & right;
 }
 
 
