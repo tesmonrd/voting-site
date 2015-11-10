@@ -25,10 +25,12 @@ var tennisPro = new Photo ("Tennis Drake", "images/tennis.gif", "He's like Verda
 var trumpDance = new Photo ("Hotline Trump", "images/trump.gif", "Even Trump can't stop Hotline Bling");
 var rightPic;
 var leftPic;
+var pictureOne = document.getElementById("pictureOne");
+var pictureTwo = document.getElementById("pictureTwo");
 
 var pickPhoto1 = function() {
   leftPic = Math.floor(Math.random() * photoCollection.length);
-  document.getElementById("pictureOne").src = photoCollection[leftPic].path;
+  pictureOne.src = photoCollection[leftPic].path;
   document.getElementById("capOne").innerHTML = photoCollection[leftPic].caption;
   return leftPic;
 };
@@ -37,41 +39,34 @@ var pickPhoto2 = function() {
   do {
     rightPic = Math.floor(Math.random() * photoCollection.length);
   } while(leftPic === rightPic)
-  document.getElementById("pictureTwo").src = photoCollection[rightPic].path;
+  pictureTwo.src = photoCollection[rightPic].path;
   document.getElementById("capTwo").innerHTML = photoCollection[rightPic].caption;
   return rightPic;
 };
 
 
 // ++++++EVENT+++++ //
-// var button1 = document.getElementById('button1');
-// var button2 = document.getElementById('button2');
+var button1 = document.getElementById('button1');
+var button2 = document.getElementById('button2');
 
-// var castVote = function(event) {
-//   event.preventDefault();
+var addPoints1 = function() {
+  photoCollection[leftPic].votes++;
+  resetPictures();
+};
+var addPoints2 = function(){
+  photoCollection[rightPic].votes++;
+  resetPictures();
+};
 
-//   if() {
-//   return photoCollection[leftPic].votes++;
-//   return photoCollection[rightPic].votes++; }
-//   console.log(photoCollection.name + ' now has ' + photoCollection.votes + ' votes.');
-// }
-//   button1.addEventListener('click', castVote, false);
-//   button2.addEventListener('click', castVote, false);
-
-
-
+button1.addEventListener('click', addPoints1);
+button2.addEventListener('click', addPoints2);
 
 
 var resetPictures = function () {
-  document.getElementById('refresh').addEventListener('click', function() {
     pickPhoto1();
     pickPhoto2();
-    randomCorrect();
-  });
 };
 
+document.getElementById('refresh').addEventListener('click', resetPictures);
 
-pickPhoto1();
-pickPhoto2();
 resetPictures();
-
