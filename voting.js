@@ -30,34 +30,33 @@ var pickPhoto1 = function() {
   leftPic = Math.floor(Math.random() * photoCollection.length);
   document.getElementById("pictureOne").src = photoCollection[leftPic].path;
   document.getElementById("capOne").innerHTML = photoCollection[leftPic].caption;
+  return leftPic;
 };
 
 var pickPhoto2 = function() {
-  rightPic = Math.floor(Math.random() * photoCollection.length);
+  do {
+    rightPic = Math.floor(Math.random() * photoCollection.length);
+  } while(leftPic === rightPic)
   document.getElementById("pictureTwo").src = photoCollection[rightPic].path;
   document.getElementById("capTwo").innerHTML = photoCollection[rightPic].caption;
+  return rightPic;
 };
 
-var randomCorrect = function () {
-  if(rightPic === leftPic) {
-    document.getElementById("pictureOne").src = photoCollection[leftPic].path;
-  }
-};
 
 // ++++++EVENT+++++ //
-var button1 = document.getElementById('button1');
-var button2 = document.getElementById('button2');
+// var button1 = document.getElementById('button1');
+// var button2 = document.getElementById('button2');
 
-var castVote = function() {
-  event.preventDefault();
+// var castVote = function(event) {
+//   event.preventDefault();
 
-  if()
-  return photoCollection[leftPic].votes++;}
-  return photoCollection[rightPic].votes++;}
-  console.log(photoCollection.name + ' now has ' + photoCollection.votes + ' votes.');
-}
-  button1.addEventListener('click', castVote, false);
-  button2.addEventListener('click', castVote, false);
+//   if() {
+//   return photoCollection[leftPic].votes++;
+//   return photoCollection[rightPic].votes++; }
+//   console.log(photoCollection.name + ' now has ' + photoCollection.votes + ' votes.');
+// }
+//   button1.addEventListener('click', castVote, false);
+//   button2.addEventListener('click', castVote, false);
 
 
 
@@ -71,9 +70,8 @@ var resetPictures = function () {
   });
 };
 
-Photo();
+
 pickPhoto1();
 pickPhoto2();
-randomCorrect();
 resetPictures();
 
