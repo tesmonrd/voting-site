@@ -23,51 +23,57 @@ var holoDrake = new Photo ("Hologram Drake", "images/starwars.gif", "His moves a
 var takeOnMe = new Photo ("Take On Drake", "images/takeonme.gif", "Drake's moves trancend decades");
 var tennisPro = new Photo ("Tennis Drake", "images/tennis.gif", "He's like Verdasco on steroids");
 var trumpDance = new Photo ("Hotline Trump", "images/trump.gif", "Even Trump can't stop Hotline Bling");
-
+var rightPic;
+var leftPic;
 
 var pickPhoto1 = function() {
-  var leftPic = Math.floor(Math.random() * photoCollection.length);
+  leftPic = Math.floor(Math.random() * photoCollection.length);
   document.getElementById("pictureOne").src = photoCollection[leftPic].path;
   document.getElementById("capOne").innerHTML = photoCollection[leftPic].caption;
 };
 
 var pickPhoto2 = function() {
-  var rightPic = Math.floor(Math.random() * photoCollection.length);
+  rightPic = Math.floor(Math.random() * photoCollection.length);
   document.getElementById("pictureTwo").src = photoCollection[rightPic].path;
   document.getElementById("capTwo").innerHTML = photoCollection[rightPic].caption;
 };
 
 var randomCorrect = function () {
-  if(rightPic === leftPick) {
+  if(rightPic === leftPic) {
     document.getElementById("pictureOne").src = photoCollection[leftPic].path;
   }
 };
 
-// var castVote = function(event) {
-//   event.preventDefault();
+// ++++++EVENT+++++ //
+var button1 = document.getElementById('button1');
+var button2 = document.getElementById('button2');
 
-//   if(button1'click' = true) {}
-//   console.log(photoCollection.name + ' had ' + photoCollection.votes + ' votes.');
-//   photoCollection[leftPic].votes++;
-//   else if (button2'click = true) {}
-//   photoCollection[rightPic].votes++;
-//   console.log(photoCollection.name + ' now has ' + photoCollection.votes + ' votes.');
+var castVote = function() {
+  event.preventDefault();
 
-//   button1.parentNode.removeChild(leftPic);
-//   button2.parentNode.removeChild(rightPic);
+  if()
+  return photoCollection[leftPic].votes++;}
+  return photoCollection[rightPic].votes++;}
+  console.log(photoCollection.name + ' now has ' + photoCollection.votes + ' votes.');
+}
+  button1.addEventListener('click', castVote, false);
+  button2.addEventListener('click', castVote, false);
 
-//   pickPhoto1();
-//   pickPhoto2();
-// }
 
-// var button1 = document.getElementById('button1');
-// var button2 = document.getElementById('button2');
 
-// button1.addEventListener('click', castVote);
-// button2.addEventListener('click', castVote);
+
+
+var resetPictures = function () {
+  document.getElementById('refresh').addEventListener('click', function() {
+    pickPhoto1();
+    pickPhoto2();
+    randomCorrect();
+  });
+};
 
 Photo();
 pickPhoto1();
 pickPhoto2();
 randomCorrect();
+resetPictures();
 
