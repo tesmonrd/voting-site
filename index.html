@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="style.css">
+<html lang='en'>
+  <head charset="utf-8" />
+    <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="style.css">
   <title></title>
 
 </head>
@@ -11,18 +11,16 @@
    <div id="title">Drake vs. Drake <br/> Hotline Bling Gif Battle</div>
   </header>
 
-  <div>
-    <button class= 'button'>
-      <div class='grow'>
-        <img id="pictureOne">
-      </div></button>
-    <p id="capOne"></p>
-    <button id= 'button'>
-      <div class='grow'><img id="pictureTwo">
-      </div></button>
-    <p id="capTwo"></p>
-  </div>
+  <section>
+    <h3 id="capOne"></h3>
+    <button class= 'button1' type="click">
+    <img id="pictureOne"></button>
+    <h3 id="capTwo"></h3>
+    <button class= 'button2' type="click">
+    <img id="pictureTwo"></button>
+  </section>
 
+  <canvas id="votingChart" width="600" height="400"></canvas>
 
  <script src= "voting.js"></script>
 </body>
