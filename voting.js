@@ -25,10 +25,12 @@ console.log(cheeseDrake);
 var pickPhoto1 = function() {
   var leftPic = Math.floor(Math.random() * photoCollection.length);
   document.getElementById("pictureOne").src = photoCollection[leftPic].path;
+  // document.getElementById("capOne") = photoCollection[leftPic].name;
 };
 var pickPhoto2 = function() {
   var rightPic = Math.floor(Math.random() * photoCollection.length);
   document.getElementById("pictureTwo").src = photoCollection[rightPic].path;
+  // document.getElementById("capTwo") = photoCollection[rightPic].name;
 };
 
 Photo();
