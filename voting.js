@@ -17,10 +17,10 @@ var fruitNinja = new Photo ("FruitNinja Drake","images/fruit.gif", "FruitNinja g
 var gassyDrake = new Photo ("Gassy Drake", "images/gassy.gif", "Truth");
 var lightSaber = new Photo ("Jedi Drake", "images/lightsaber.gif", "The Force is strong in this one");
 var pizzaChef = new Photo ("Pizza Drake", "images/pizza.gif", "Drake is the original Papa John");
-var pokeDrake = new Photo ("pokedrake", "images/pokedrake.gif", "Catchin' Em All");
+var pokeDrake = new Photo ("Pokedrake", "images/pokedrake.gif", "Catchin' Em All");
 var hanSolo = new Photo ("Deflecting Drake", "images/shoot.gif", "Its a TRAP!");
 var holoDrake = new Photo ("Hologram Drake", "images/starwars.gif", "His moves are our final hope.");
-var takeOnMe = new Photo ("Take on Drake", "images/takeonme.gif", "Drake's moves trancend decades");
+var takeOnMe = new Photo ("Take On Drake", "images/takeonme.gif", "Drake's moves trancend decades");
 var tennisPro = new Photo ("Tennis Drake", "images/tennis.gif", "He's like Verdasco on steroids");
 var trumpDance = new Photo ("Hotline Trump", "images/trump.gif", "Even Trump can't stop Hotline Bling");
 
@@ -28,30 +28,33 @@ var trumpDance = new Photo ("Hotline Trump", "images/trump.gif", "Even Trump can
 var pickPhoto1 = function() {
   var leftPic = Math.floor(Math.random() * photoCollection.length);
   document.getElementById("pictureOne").src = photoCollection[leftPic].path;
+  document.getElementById("capOne").innerHTML = photoCollection[leftPic].caption;
 };
 
 var pickPhoto2 = function() {
   var rightPic = Math.floor(Math.random() * photoCollection.length);
   document.getElementById("pictureTwo").src = photoCollection[rightPic].path;
+  document.getElementById("capTwo").innerHTML = photoCollection[rightPic].caption;
 };
 
-// randomCorrect = function () {
-//   if(rightPic === leftPic) {
-//     pickPhoto2();
-//   }
-// };
+randomCorrect = function () {
+  if(rightPic === leftPick) {
+      document.getElementById("pictureOne") = pickPhoto1();
+  }
+};
 
-// var castVote = function(event) {  // 1) need to take the clicked button 2) add value to that button 3)return that to a table
+// var castVote = function(event) {
 //   event.preventDefault();
 
-//   if(!event.target.button1.value === !event.target.button2.value)
-//   console.log(pickPhoto1.name + ' had ' + pickPhoto1.votes + ' votes.');
-//   pickPhoto1.votes++;
+//   if(button1'click' = true) {}
+//   console.log(photoCollection.name + ' had ' + photoCollection.votes + ' votes.');
+//   photoCollection[leftPic].votes++;
+//   else if (button2'click = true) {}
 //   photoCollection[rightPic].votes++;
-//   console.log(pickPhoto1.name + ' now has ' + pickPhoto1.votes + ' votes.');
+//   console.log(photoCollection.name + ' now has ' + photoCollection.votes + ' votes.');
 
-//   leftPic.parentNode.removeChild(leftPic);
-//   rightPic.parentNode.removeChild(rightPic);
+//   button1.parentNode.removeChild(leftPic);
+//   button2.parentNode.removeChild(rightPic);
 
 //   pickPhoto1();
 //   pickPhoto2();
@@ -67,3 +70,4 @@ Photo();
 pickPhoto1();
 pickPhoto2();
 // randomCorrect();
+
