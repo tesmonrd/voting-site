@@ -13,6 +13,18 @@
   float: right;
 }
 
+#capOne {
+  text-align: center;
+  font-family: 'Georgia', serif;
+  font-size: 18px;
+}
+
+#capTwo {
+  text-align: center;
+  font-family: 'Georgia', serif;
+  font-size: 18px;
+}
+
 .button1 {
   float: left;
   margin: 5% 5% 5% 10%;
@@ -25,5 +37,25 @@
   margin: 5% 10% 5% 5%;
   background: none;
   border: none;
+}
+
+#refresh {
+
+  border: 0;
+  background: black;
+  border-radius: 4px;
+  box-shadow: 0 5px 0 #006599;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  margin-left: 38%;
+  outline: 0;
+  padding: 12px 20px;
+  transition: all .1s linear;
+}
+#refresh:active {
+  box-shadow: 0 2px 0 #006599;
+  transform: translateY(3px);
+}
 }
 /*Animations*/
