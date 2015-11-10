@@ -21,7 +21,6 @@ var takeOnMe = new Photo ("Drake's moves trancend decades", "images/takeonme.gif
 var tennisPro = new Photo ("He's like Verdasco on steroids", "images/tennis.gif");
 var trumpDance = new Photo ("Even Trump can't stop Hotline Bling", "images/trump.gif");
 
-console.log(cheeseDrake);
 var pickPhoto1 = function() {
   var leftPic = Math.floor(Math.random() * photoCollection.length);
   document.getElementById("pictureOne").src = photoCollection[leftPic].path;
@@ -32,6 +31,9 @@ var pickPhoto2 = function() {
   document.getElementById("pictureTwo").src = photoCollection[rightPic].path;
   // document.getElementById("capTwo") = photoCollection[rightPic].name;
 };
+
+// Do interaction here //
+
 
 Photo();
 pickPhoto1();
