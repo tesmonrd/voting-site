@@ -6,27 +6,24 @@
 }
 
 #pictureOne {
-  margin: 10% 10% 10% 10%;
   float: left;
 
 }
 #pictureTwo {
-  margin: 10% 10% 10% 10%;
   float: right;
-
 }
-#button {
-  background: white;
+
+.button1 {
+  float: left;
+  margin: 5% 5% 5% 10%;
+  background: none;
   border: none;
-  float:left & right;
 }
 
-
+.button2 {
+  float: right;
+  margin: 5% 10% 5% 5%;
+  background: none;
+  border: none;
+}
 /*Animations*/
-.grow:hover
-{
- -webkit-transform: scale(1.1);
- -ms-transform: scale(1.1);
- transform: scale(1.1);
-}
-
