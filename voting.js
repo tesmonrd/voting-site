@@ -37,9 +37,9 @@ var pickPhoto2 = function() {
   document.getElementById("capTwo").innerHTML = photoCollection[rightPic].caption;
 };
 
-randomCorrect = function () {
+var randomCorrect = function () {
   if(rightPic === leftPick) {
-      document.getElementById("pictureOne") = pickPhoto1();
+    document.getElementById("pictureOne").src = photoCollection[leftPic].path;
   }
 };
 
@@ -69,5 +69,5 @@ randomCorrect = function () {
 Photo();
 pickPhoto1();
 pickPhoto2();
-// randomCorrect();
+randomCorrect();
 
