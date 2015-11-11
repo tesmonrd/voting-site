@@ -1,5 +1,3 @@
-// 1)PREVENT REPEATS 2)GET EVENTFUNCTION 3)GET CAPTIONS 4)FORMAT
-
 var photoCollection = [];
 
 
@@ -27,6 +25,8 @@ var rightPic;
 var leftPic;
 var pictureOne = document.getElementById("pictureOne");
 var pictureTwo = document.getElementById("pictureTwo");
+var chartData = [];
+var chartName = [];
 
 var pickPhoto1 = function() {
   leftPic = Math.floor(Math.random() * photoCollection.length);
@@ -51,10 +51,12 @@ var button2 = document.getElementById('button2');
 
 var addPoints1 = function() {
   photoCollection[leftPic].votes++;
+  dataGrab();
   resetPictures();
 };
 var addPoints2 = function(){
   photoCollection[rightPic].votes++;
+  dataGrab();
   resetPictures();
 };
 
@@ -66,7 +68,34 @@ var resetPictures = function () {
     pickPhoto1();
     pickPhoto2();
 };
+// GET THIS WORKING!!!!!! REPLACE OLD ARRAY EACH TIME!!!!!!! RAGE//
+function dataGrab() {
+  for(i=0; i<photoCollection.length; i++) {
+    chartData.push(photoCollection[i].votes);
+    chartName.push(photoCollection[i].name);
+    // chartData.pop();
+    // chartData.push(photoCollection[i].votes);
+  }
+};
 
 document.getElementById('refresh').addEventListener('click', resetPictures);
 
 resetPictures();
+
+// ++++++++++++++CANVAS+++++++++++++++//
+var data = {
+    labels: chartName,
+    datasets: [
+        {
+            label: chartName,
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: chartData,
+        },
+    ]
+}
+
+var context=document.getElementById('voteGraph').getContext('2d');
+var myBarChart = new Chart(context).Bar(data);

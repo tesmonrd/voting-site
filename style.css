@@ -1,6 +1,6 @@
 #title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 28px;
+  font-size: 38px;
   text-align: center;
   margin:5%;
 }
@@ -27,14 +27,14 @@
 
 #button1 {
   float: left;
-  margin: 5% 5% 5% 10%;
+  margin: 0% 5% 5% 10%;
   background: none;
   border: none;
 }
 
 #button2 {
   float: right;
-  margin: 5% 10% 5% 5%;
+  margin: 0% 10% 5% 5%;
   background: none;
   border: none;
 }
@@ -57,5 +57,19 @@
   box-shadow: 0 2px 0 #006599;
   transform: translateY(3px);
 }
-}
+
 /*Animations*/
+
+#button1:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+}
+
+#button2:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+}
