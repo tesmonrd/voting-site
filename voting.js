@@ -1,12 +1,13 @@
 var photoCollection = [];
 
-
 function Photo(name,path,caption) {
   this.name = name;
   this.path = path;
   this.caption = caption;
   this.votes = 0;
   photoCollection.push(this);
+  // data.labels.push(name);
+  // chartData.data.push(0);
 }
 
 var cheeseDrake = new Photo ("Chuck-E Cheese", "images/cheesedrake.gif","Skee-ball is Drakes real passion");
@@ -32,7 +33,6 @@ var pickPhoto1 = function() {
   leftPic = Math.floor(Math.random() * photoCollection.length);
   pictureOne.src = photoCollection[leftPic].path;
   document.getElementById("capOne").innerHTML = photoCollection[leftPic].caption;
-  return leftPic;
 };
 
 var pickPhoto2 = function() {
@@ -41,9 +41,7 @@ var pickPhoto2 = function() {
   } while(leftPic === rightPic)
   pictureTwo.src = photoCollection[rightPic].path;
   document.getElementById("capTwo").innerHTML = photoCollection[rightPic].caption;
-  return rightPic;
 };
-
 
 // ++++++EVENT+++++ //
 var button1 = document.getElementById('button1');
@@ -51,11 +49,13 @@ var button2 = document.getElementById('button2');
 
 var addPoints1 = function() {
   photoCollection[leftPic].votes++;
+  // chartData.push(photoCollection[leftPic].votes);
   dataGrab();
   resetPictures();
 };
 var addPoints2 = function(){
   photoCollection[rightPic].votes++;
+  // chartData.push(photoCollection[rightPic].votes);
   dataGrab();
   resetPictures();
 };
@@ -68,26 +68,24 @@ var resetPictures = function () {
     pickPhoto1();
     pickPhoto2();
 };
+
 // GET THIS WORKING!!!!!! REPLACE OLD ARRAY EACH TIME!!!!!!! RAGE//
 function dataGrab() {
   for(i=0; i<photoCollection.length; i++) {
-    chartData.push(photoCollection[i].votes);
-    chartName.push(photoCollection[i].name);
-    // chartData.pop();
-    // chartData.push(photoCollection[i].votes);
+    chartName[i] = photoCollection[i].name;
+    chartData[i] = photoCollection[i].votes;
   }
 };
 
 document.getElementById('refresh').addEventListener('click', resetPictures);
-
 resetPictures();
 
 // ++++++++++++++CANVAS+++++++++++++++//
-var data = {
-    labels: chartName,
-    datasets: [
+var data = {   //do a for loop here????
+    labels : chartName,
+    datasets : [
         {
-            label: chartName,
+            label: chartName, //replace with photoCollection[i]
             fillColor: "rgba(220,220,220,0.5)",
             strokeColor: "rgba(220,220,220,0.8)",
             highlightFill: "rgba(220,220,220,0.75)",
@@ -99,3 +97,11 @@ var data = {
 
 var context=document.getElementById('voteGraph').getContext('2d');
 var myBarChart = new Chart(context).Bar(data);
+
+// function update() {
+//   myBarChart.datasets[0].bars[i].value = photoCollection[i].votes;
+// };
+
+// myBarChart.update();
+
+
