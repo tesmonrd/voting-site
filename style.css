@@ -1,6 +1,15 @@
+body {
+  background-image: url(images/background.jpg)
+}
+section {
+  background: rgba(255,255,255, 0.8);
+  padding: 5px;
+  margin: 5% 5% 5% 5%;
+
+}
 #title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 38px;
+  font-size: 32px;
   text-align: center;
   margin:5%;
 }
@@ -16,13 +25,13 @@
 #capOne {
   text-align: center;
   font-family: 'Georgia', serif;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 #capTwo {
   text-align: center;
   font-family: 'Georgia', serif;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 #button1 {
@@ -49,6 +58,7 @@
   cursor: pointer;
   font: inherit;
   margin-left: 38%;
+  margin-bottom: 10%
   outline: 0;
   padding: 12px 20px;
   transition: all .1s linear;
@@ -58,6 +68,11 @@
   transform: translateY(3px);
 }
 
+#voteGraph {
+  margin-top: 5%;
+  margin-left: 20%;
+  float: middle;
+}
 /*Animations*/
 
 #button1:hover
