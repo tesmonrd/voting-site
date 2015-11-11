@@ -1,6 +1,5 @@
 var photoCollection = [];
 
-
 function Photo(name,path,caption) {
   this.name = name;
   this.path = path;
@@ -32,7 +31,6 @@ var pickPhoto1 = function() {
   leftPic = Math.floor(Math.random() * photoCollection.length);
   pictureOne.src = photoCollection[leftPic].path;
   document.getElementById("capOne").innerHTML = photoCollection[leftPic].caption;
-  return leftPic;
 };
 
 var pickPhoto2 = function() {
@@ -41,9 +39,7 @@ var pickPhoto2 = function() {
   } while(leftPic === rightPic)
   pictureTwo.src = photoCollection[rightPic].path;
   document.getElementById("capTwo").innerHTML = photoCollection[rightPic].caption;
-  return rightPic;
 };
-
 
 // ++++++EVENT+++++ //
 var button1 = document.getElementById('button1');
@@ -51,12 +47,16 @@ var button2 = document.getElementById('button2');
 
 var addPoints1 = function() {
   photoCollection[leftPic].votes++;
-  dataGrab();
+  myBarChart.datasets[0].bars[leftPic].value = photoCollection[leftPic].votes;
+  myBarChart.update();
+  console.log("The chart is updated");
   resetPictures();
 };
 var addPoints2 = function(){
   photoCollection[rightPic].votes++;
-  dataGrab();
+  myBarChart.datasets[0].bars[rightPic].value = photoCollection[rightPic].votes;
+  myBarChart.update();
+  console.log("The chart is updated");
   resetPictures();
 };
 
@@ -68,34 +68,43 @@ var resetPictures = function () {
     pickPhoto1();
     pickPhoto2();
 };
-// GET THIS WORKING!!!!!! REPLACE OLD ARRAY EACH TIME!!!!!!! RAGE//
-function dataGrab() {
-  for(i=0; i<photoCollection.length; i++) {
-    chartData.push(photoCollection[i].votes);
-    chartName.push(photoCollection[i].name);
-    // chartData.pop();
-    // chartData.push(photoCollection[i].votes);
-  }
-};
 
 document.getElementById('refresh').addEventListener('click', resetPictures);
-
 resetPictures();
 
+function nameGrab() {
+  for(var i=0; i<photoCollection.length; i++) {
+    chartName[i] = photoCollection[i].name;
+  }
+};
+nameGrab();
 // ++++++++++++++CANVAS+++++++++++++++//
 var data = {
-    labels: chartName,
-    datasets: [
+    labels : chartName,
+    datasets : [
         {
-            label: chartName,
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
+            label: "",
+            fillColor: "rgba(73,108,137,0.5)",
+            strokeColor: "rgba(0,100,153,0.8)",
             highlightFill: "rgba(220,220,220,0.75)",
             highlightStroke: "rgba(220,220,220,1)",
-            data: chartData,
-        },
+            data:[0,0,0,0,0,0,0,0,0,0,0,0]
+        }
     ]
-}
+};
 
 var context=document.getElementById('voteGraph').getContext('2d');
-var myBarChart = new Chart(context).Bar(data);
+var myBarChart = new Chart(context).Bar(data,
+  {
+  scaleShowVerticalLines: false,
+  scaleShowHorizontalLines: true,
+  barStrokeWidth: 3
+});
+// dataGrab();
+// function update() {
+//   myBarChart.datasets[0].bars[i].value = photoCollection[i].votes;
+// };
+
+
+
+
