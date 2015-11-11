@@ -69,27 +69,23 @@ var resetPictures = function () {
     pickPhoto2();
 };
 
-
-// var chartData = [2, 5, 5, 3, 3,3, 4,5,8,9,0,1];
 document.getElementById('refresh').addEventListener('click', resetPictures);
 resetPictures();
 
-// ++++++++++++++CANVAS+++++++++++++++//
 function nameGrab() {
   for(var i=0; i<photoCollection.length; i++) {
     chartName[i] = photoCollection[i].name;
-    // chartData[i] = photoCollection[i].votes;
   }
 };
 nameGrab();
-
+// ++++++++++++++CANVAS+++++++++++++++//
 var data = {
     labels : chartName,
     datasets : [
         {
             label: "",
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
+            fillColor: "rgba(73,108,137,0.5)",
+            strokeColor: "rgba(0,100,153,0.8)",
             highlightFill: "rgba(220,220,220,0.75)",
             highlightStroke: "rgba(220,220,220,1)",
             data:[0,0,0,0,0,0,0,0,0,0,0,0]
@@ -102,7 +98,7 @@ var myBarChart = new Chart(context).Bar(data,
   {
   scaleShowVerticalLines: false,
   scaleShowHorizontalLines: true,
-  barStrokeWidth: 1
+  barStrokeWidth: 3
 });
 // dataGrab();
 // function update() {
