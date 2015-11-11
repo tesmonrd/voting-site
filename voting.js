@@ -6,8 +6,6 @@ function Photo(name,path,caption) {
   this.caption = caption;
   this.votes = 0;
   photoCollection.push(this);
-  // data.labels.push(name);
-  // chartData.data.push(0);
 }
 
 var cheeseDrake = new Photo ("Chuck-E Cheese", "images/cheesedrake.gif","Skee-ball is Drakes real passion");
@@ -49,14 +47,16 @@ var button2 = document.getElementById('button2');
 
 var addPoints1 = function() {
   photoCollection[leftPic].votes++;
-  // chartData.push(photoCollection[leftPic].votes);
-  dataGrab();
+  myBarChart.datasets[0].bars[leftPic].value = photoCollection[leftPic].votes;
+  myBarChart.update();
+  console.log("The chart is updated");
   resetPictures();
 };
 var addPoints2 = function(){
   photoCollection[rightPic].votes++;
-  // chartData.push(photoCollection[rightPic].votes);
-  dataGrab();
+  myBarChart.datasets[0].bars[rightPic].value = photoCollection[rightPic].votes;
+  myBarChart.update();
+  console.log("The chart is updated");
   resetPictures();
 };
 
@@ -69,39 +69,46 @@ var resetPictures = function () {
     pickPhoto2();
 };
 
-// GET THIS WORKING!!!!!! REPLACE OLD ARRAY EACH TIME!!!!!!! RAGE//
-function dataGrab() {
-  for(i=0; i<photoCollection.length; i++) {
-    chartName[i] = photoCollection[i].name;
-    chartData[i] = photoCollection[i].votes;
-  }
-};
 
+// var chartData = [2, 5, 5, 3, 3,3, 4,5,8,9,0,1];
 document.getElementById('refresh').addEventListener('click', resetPictures);
 resetPictures();
 
 // ++++++++++++++CANVAS+++++++++++++++//
-var data = {   //do a for loop here????
+function nameGrab() {
+  for(var i=0; i<photoCollection.length; i++) {
+    chartName[i] = photoCollection[i].name;
+    // chartData[i] = photoCollection[i].votes;
+  }
+};
+nameGrab();
+
+var data = {
     labels : chartName,
     datasets : [
         {
-            label: chartName, //replace with photoCollection[i]
+            label: "",
             fillColor: "rgba(220,220,220,0.5)",
             strokeColor: "rgba(220,220,220,0.8)",
             highlightFill: "rgba(220,220,220,0.75)",
             highlightStroke: "rgba(220,220,220,1)",
-            data: chartData,
-        },
+            data:[0,0,0,0,0,0,0,0,0,0,0,0]
+        }
     ]
-}
+};
 
 var context=document.getElementById('voteGraph').getContext('2d');
-var myBarChart = new Chart(context).Bar(data);
-
+var myBarChart = new Chart(context).Bar(data,
+  {
+  scaleShowVerticalLines: false,
+  scaleShowHorizontalLines: true,
+  barStrokeWidth: 1
+});
+// dataGrab();
 // function update() {
 //   myBarChart.datasets[0].bars[i].value = photoCollection[i].votes;
 // };
 
-// myBarChart.update();
+
 
 
