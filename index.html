@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <title></title>
 
-</head>
-<body>
-  <header>
-   <div id="title">Drake vs. Drake <br/> Hotline Bling Gif Battle</div>
-  </header>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="Chart.js"></script>
+    <title></title>
+  </head>
 
-  <div>
-    <button class= 'button'>
-      <div class='grow'>
-        <img id="pictureOne">
-      </div></button>
-    <p id="capOne"></p>
-    <button id= 'button'>
-      <div class='grow'><img id="pictureTwo">
-      </div></button>
-    <p id="capTwo"></p>
-  </div>
+  <body>
+    <header>
+    <div id="title">Drake vs. Drake <br/> Hotline Bling Gif Battle</div>
+    </header>
 
+    <section>
+      <div id= 'button1' type="click"><h3 id="capOne"></h3>
+      <img id="pictureOne"></div>
+      <div id= 'button2' type="click"><h3 id="capTwo"></h3>
+      <img id="pictureTwo"></div>
+    </section>
+    <section>
+      <button id= "refresh" type='click'>LET THE BATTLE CONTINUE</button>
+    </section>
 
- <script src= "voting.js"></script>
+    <canvas id="voteGraph" width="600" height="200"></canvas>
+
+ <script src="voting.js"></script>
 </body>
 </html>
