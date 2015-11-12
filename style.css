@@ -15,9 +15,12 @@ section {
   text-align: center;
   margin:5%;
 }
-#drakeface {
-  margin-bottom: 2%;
+
+#buttons {
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
 }
+
 #pictureOne {
   float: left;
 
