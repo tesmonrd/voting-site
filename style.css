@@ -1,9 +1,11 @@
 body {
-  background-image: url(images/background.jpg)
+  background-image: url(images/background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 section {
   background: rgba(255,255,255, 0.8);
-  padding: 5px;
+  padding-top: 5px;
   margin: 5% 5% 5% 5%;
 
 }
@@ -13,7 +15,9 @@ section {
   text-align: center;
   margin:5%;
 }
-
+#drakeface {
+  margin-bottom: 2%;
+}
 #pictureOne {
   float: left;
 
@@ -36,14 +40,14 @@ section {
 
 #button1 {
   float: left;
-  margin: 0% 5% 5% 10%;
+  margin: 0% 2% 5% 10%;
   background: none;
   border: none;
 }
 
 #button2 {
   float: right;
-  margin: 0% 10% 5% 5%;
+  margin: 0% 10% 5% 2%;
   background: none;
   border: none;
 }
