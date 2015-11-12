@@ -27,6 +27,7 @@ var pictureTwo = document.getElementById("pictureTwo");
 var chartData = [];
 var chartName = [];
 
+// ++++++Photo&Caption Display+++++++//
 var pickPhoto1 = function() {
   leftPic = Math.floor(Math.random() * photoCollection.length);
   pictureOne.src = photoCollection[leftPic].path;
@@ -41,7 +42,7 @@ var pickPhoto2 = function() {
   document.getElementById("capTwo").innerHTML = photoCollection[rightPic].caption;
 };
 
-// ++++++EVENT+++++ //
+// ++++++ButtonEVENT+++++ //
 var button1 = document.getElementById('button1');
 var button2 = document.getElementById('button2');
 
@@ -49,20 +50,17 @@ var addPoints1 = function() {
   photoCollection[leftPic].votes++;
   myBarChart.datasets[0].bars[leftPic].value = photoCollection[leftPic].votes;
   myBarChart.update();
-  console.log("The chart is updated");
   resetPictures();
 };
 var addPoints2 = function(){
   photoCollection[rightPic].votes++;
   myBarChart.datasets[0].bars[rightPic].value = photoCollection[rightPic].votes;
   myBarChart.update();
-  console.log("The chart is updated");
   resetPictures();
 };
 
 button1.addEventListener('click', addPoints1);
 button2.addEventListener('click', addPoints2);
-
 
 var resetPictures = function () {
     pickPhoto1();
@@ -78,6 +76,7 @@ function nameGrab() {
   }
 };
 nameGrab();
+
 // ++++++++++++++CANVAS+++++++++++++++//
 var data = {
     labels : chartName,
@@ -100,11 +99,3 @@ var myBarChart = new Chart(context).Bar(data,
   scaleShowHorizontalLines: true,
   barStrokeWidth: 3
 });
-// dataGrab();
-// function update() {
-//   myBarChart.datasets[0].bars[i].value = photoCollection[i].votes;
-// };
-
-
-
-
