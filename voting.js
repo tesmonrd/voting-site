@@ -1,3 +1,4 @@
+var data;
 var photoCollection = [];
 
 function Photo(name,path,caption) {
@@ -24,8 +25,8 @@ var rightPic;
 var leftPic;
 var pictureOne = document.getElementById("pictureOne");
 var pictureTwo = document.getElementById("pictureTwo");
-var chartData = [];
 var chartName = [];
+
 
 // ++++++Photo&Caption Display+++++++//
 var pickPhoto1 = function() {
@@ -42,6 +43,26 @@ var pickPhoto2 = function() {
   document.getElementById("capTwo").innerHTML = photoCollection[rightPic].caption;
 };
 
+function checkLocal() {
+  if(localStorage.chartChart) {
+    data = JSON.parse(localStorage.chartChart);
+  } else {
+    data = {
+    labels : chartName,
+    datasets : [
+        {
+            label: "",
+            fillColor: "rgba(73,108,137,0.5)",
+            strokeColor: "rgba(0,100,153,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data:[0,0,0,0,0,0,0,0,0,0,0,0]
+        }
+    ]
+    }
+  }
+}; checkLocal();
+
 // ++++++ButtonEVENT+++++ //
 var button1 = document.getElementById('button1');
 var button2 = document.getElementById('button2');
@@ -50,12 +71,14 @@ var addPoints1 = function() {
   photoCollection[leftPic].votes++;
   myBarChart.datasets[0].bars[leftPic].value = photoCollection[leftPic].votes;
   myBarChart.update();
+  localStorage.setItem('chartChart',JSON.stringify(myBarChart.datasets));
   resetPictures();
 };
 var addPoints2 = function(){
   photoCollection[rightPic].votes++;
   myBarChart.datasets[0].bars[rightPic].value = photoCollection[rightPic].votes;
   myBarChart.update();
+  localStorage.setItem('chartChart',JSON.stringify(myBarChart.datasets));
   resetPictures();
 };
 
@@ -99,3 +122,7 @@ var myBarChart = new Chart(context).Bar(data,
   scaleShowHorizontalLines: true,
   barStrokeWidth: 3
 });
+// ++++++++++++++Storage++++++++++++++++++//
+
+
+
