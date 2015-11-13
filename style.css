@@ -7,13 +7,38 @@ section {
   background: rgba(255,255,255, 0.8);
   padding-top: 5px;
   margin: 5% 5% 5% 5%;
+}
 
+header {
+ display: -webkit-flex;
+ display: flex;
+ align-items: center;
+}
+#drakeFace {
+  /*justify-content: flex-start;
+  width: 100%;*/
+  width:60px;
+  height:90px;
+  margin: 3%;
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 2000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 2000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 2000ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
 }
 #title {
   font-family: 'Press Start 2P', cursive;
   font-size: 32px;
+  justify-content: flex-center;
   text-align: center;
-  margin:5%;
+  margin:3%;
 }
 
 #buttons {
@@ -94,4 +119,14 @@ section {
         -webkit-transform: scale(1.1);
         -ms-transform: scale(1.1);
         transform: scale(1.1);
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform:rotate(0deg);
+  }
+
+  to {
+    -webkit-transform:rotate(360deg);
+  }
 }
