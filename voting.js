@@ -21,7 +21,6 @@ function checkLocal() {
   if(localStorage.storeData && localStorage.photoCollection) {
     data = JSON.parse(localStorage.storeData);
     photoCollection = JSON.parse(localStorage.photoCollection);
-    console.log(data);
   } else {
     var cheeseDrake = new Photo ("Chuck-E Cheese", "images/cheesedrake.gif","Skee-ball is Drakes real passion");
     var doubleDance = new Photo ("Carlton + Drake", "images/doubledance.gif", "Carlton wants in on the action");
@@ -33,7 +32,7 @@ function checkLocal() {
     var hanSolo = new Photo ("Deflecting Drake", "images/shoot.gif", "Its a TRAP!");
     var holoDrake = new Photo ("Hologram Drake", "images/starwars.gif", "His moves are our final hope.");
     var takeOnMe = new Photo ("Take On Drake", "images/takeonme.gif", "Drake's moves trancend decades");
-    var tennisPro = new Photo ("Tennis Drake", "images/tennis.gif", "He's like Verdasco on steroids");
+    var tennisPro = new Photo ("Tennis Drake", "images/tennis.gif", "He's the chip and charge kind of player");
     var trumpDance = new Photo ("Hotline Trump", "images/trump.gif", "Even Trump can't stop Hotline Bling");
     localStorage.setItem('photoCollection', JSON.stringify(photoCollection));
     data = {
