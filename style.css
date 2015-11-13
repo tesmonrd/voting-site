@@ -13,6 +13,7 @@ header {
  display: -webkit-flex;
  display: flex;
  align-items: center;
+ margin-bottom: 5%;
 }
 #drakeFace {
   /*justify-content: flex-start;
@@ -48,10 +49,12 @@ header {
 
 #pictureOne {
   float: left;
+  margin-top: 5%;
 
 }
 #pictureTwo {
   float: right;
+  margin-top: 5%;
 }
 
 #capOne {
