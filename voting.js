@@ -1,5 +1,5 @@
-var data;
 var photoCollection = [];
+var data;
 
 function Photo(name,path,caption) {
   this.name = name;
@@ -27,7 +27,6 @@ var pictureOne = document.getElementById("pictureOne");
 var pictureTwo = document.getElementById("pictureTwo");
 var chartName = [];
 
-
 // ++++++Photo&Caption Display+++++++//
 var pickPhoto1 = function() {
   leftPic = Math.floor(Math.random() * photoCollection.length);
@@ -44,8 +43,9 @@ var pickPhoto2 = function() {
 };
 
 function checkLocal() {
-  if(localStorage.chartChart) {
-    data = JSON.parse(localStorage.chartChart);
+  if(localStorage.storeData) {
+    data = JSON.parse(localStorage.storeData);
+    console.log(data);
   } else {
     data = {
     labels : chartName,
@@ -58,9 +58,9 @@ function checkLocal() {
             highlightStroke: "rgba(220,220,220,1)",
             data:[0,0,0,0,0,0,0,0,0,0,0,0]
         }
-    ]
-    }
-  }
+      ]
+      }
+     }
 }; checkLocal();
 
 // ++++++ButtonEVENT+++++ //
@@ -69,17 +69,19 @@ var button2 = document.getElementById('button2');
 
 var addPoints1 = function() {
   photoCollection[leftPic].votes++;
+  data.datasets[0].data[leftPic] = photoCollection[leftPic].votes;
   myBarChart.datasets[0].bars[leftPic].value = photoCollection[leftPic].votes;
-  myBarChart.update();
-  localStorage.setItem('chartChart',JSON.stringify(myBarChart.datasets));
+  localStorage.setItem('storeData',JSON.stringify(data));
   resetPictures();
+  myBarChart.update();
 };
 var addPoints2 = function(){
   photoCollection[rightPic].votes++;
+  data.datasets[0].data[rightPic] = photoCollection[rightPic].votes;
   myBarChart.datasets[0].bars[rightPic].value = photoCollection[rightPic].votes;
-  myBarChart.update();
-  localStorage.setItem('chartChart',JSON.stringify(myBarChart.datasets));
+  localStorage.setItem('storeData',JSON.stringify(data));
   resetPictures();
+  myBarChart.update();
 };
 
 button1.addEventListener('click', addPoints1);
@@ -100,29 +102,9 @@ function nameGrab() {
 };
 nameGrab();
 
-// ++++++++++++++CANVAS+++++++++++++++//
-var data = {
-    labels : chartName,
-    datasets : [
-        {
-            label: "",
-            fillColor: "rgba(73,108,137,0.5)",
-            strokeColor: "rgba(0,100,153,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data:[0,0,0,0,0,0,0,0,0,0,0,0]
-        }
-    ]
-};
-
 var context=document.getElementById('voteGraph').getContext('2d');
-var myBarChart = new Chart(context).Bar(data,
-  {
+var myBarChart = new Chart(context).Bar(data, {
   scaleShowVerticalLines: false,
   scaleShowHorizontalLines: true,
   barStrokeWidth: 3
 });
-// ++++++++++++++Storage++++++++++++++++++//
-
-
-
